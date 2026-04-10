@@ -287,6 +287,16 @@
             50% { opacity: 1; }
             100% { opacity: 0.8; }
         }
+        
+        /* 更新提示 */
+        .update-notice {
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
     </style>
     <!-- Font Awesome 图标 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -297,6 +307,10 @@
             <div class="logo">TT<span>Poker</span></div>
             <div class="tagline">专业德州扑克游戏平台</div>
         </header>
+        
+        <div class="update-notice">
+            <i class="fas fa-check-circle"></i> 网站已更新！iOS和Android下载链接已就绪
+        </div>
         
         <div class="maintenance-notice">
             <i class="fas fa-tools"></i> 网站正在升级维护中，应用下载功能正常
@@ -367,7 +381,7 @@
                     </ol>
                     <p style="margin-top: 20px;">
                         <strong>下载链接：</strong> 
-                        <span style="color: #FFD700; font-weight: bold;">[咕噜分发链接待更新]</span>
+                        <a href="https://www.guluapp.cn/fLNM" style="color: #FFD700; font-weight: bold; text-decoration: underline;">点击下载iOS版</a>
                     </p>
                 </div>
                 
@@ -381,7 +395,7 @@
                     </ol>
                     <p style="margin-top: 20px;">
                         <strong>下载链接：</strong> 
-                        <span style="color: #FFD700; font-weight: bold;">[咕噜分发链接待更新]</span>
+                        <a href="https://www.guluapp.cn/OFBF" style="color: #FFD700; font-weight: bold; text-decoration: underline;">点击下载Android版</a>
                     </p>
                 </div>
             </section>
@@ -416,7 +430,7 @@
             <p>© 2026 TT Poker. All rights reserved.</p>
             <p class="copyright">本游戏仅供娱乐，严禁用于赌博。请遵守当地法律法规。</p>
             <p class="copyright" style="margin-top: 10px; font-size: 12px; opacity: 0.6;">
-                网站版本: 1.0.0 | 最后更新: 2026年4月10日
+                网站版本: 1.1.0 | 最后更新: 2026年4月10日
             </p>
         </footer>
     </div>
@@ -451,26 +465,38 @@
                 document.body.style.opacity = '1';
             }, 100);
             
-            // 显示维护时间
+            // 显示更新时间和版本
             const updateTime = new Date().toLocaleString('zh-CN');
             const timeElement = document.querySelector('.copyright:last-child');
             if (timeElement) {
-                timeElement.innerHTML = `网站版本: 1.0.0 | 最后更新: ${updateTime}`;
+                timeElement.innerHTML = `网站版本: 1.1.0 | 最后更新: ${updateTime}`;
             }
+            
+            // 自动检查链接有效性
+            checkLinks();
         });
         
-        // 模拟咕噜分发链接（实际使用时替换为真实链接）
-        function updateDownloadLinks() {
-            // 这里可以添加从咕噜分发获取最新链接的逻辑
-            console.log('需要更新咕噜分发下载链接');
+        // 链接检查函数
+        function checkLinks() {
+            const links = [
+                { url: 'https://www.guluapp.cn/fLNM', name: 'iOS下载链接' },
+                { url: 'https://www.guluapp.cn/OFBF', name: 'Android下载链接' }
+            ];
             
-            // 示例：手动更新链接
-            // document.querySelector('#ios-download span').textContent = 'https://app.gulufenfa.com/xxxxx';
-            // document.querySelector('#android-download span').textContent = 'https://app.gulufenfa.com/yyyyy';
+            links.forEach(link => {
+                // 这里可以添加链接有效性检查逻辑
+                console.log(`检查链接: ${link.name} - ${link.url}`);
+            });
         }
         
-        // 初始化时尝试更新链接
-        updateDownloadLinks();
+        // 复制链接功能
+        function copyLink(url) {
+            navigator.clipboard.writeText(url).then(() => {
+                alert('链接已复制到剪贴板！');
+            }).catch(err => {
+                console.error('复制失败:', err);
+            });
+        }
     </script>
 </body>
 </html>
