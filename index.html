@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TT Poker - 专业德州扑克游戏</title>
+    <meta name="description" content="TT Poker，最专业的扑克游戏体验。娱乐性质，非赌博。提供最真实的德州扑克游戏体验。">
+    <meta name="keywords" content="TT Poker, 德州扑克, 扑克游戏, 扑克, 娱乐游戏">
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .logo span {
+            color: #FFD700;
+        }
+        
+        .tagline {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        /* 主要内容 */
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .intro h2 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .intro p {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+        
+        /* 功能特点 */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            background: #e9ecef;
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        
+        .feature h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        /* 下载区域 */
+        .download-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            margin: 40px 0;
+            color: white;
+        }
+        
+        .download-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 40px;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .download-btn.ios {
+            background: #000;
+            color: white;
+        }
+        
+        .download-btn.android {
+            background: #3DDC84;
+            color: #000;
+        }
+        
+        .btn-icon {
+            font-size: 28px;
+        }
+        
+        /* 安装说明 */
+        .instructions {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        
+        .instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .instructions ol {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .instructions li {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        /* 注意事项 */
+        .disclaimer {
+            text-align: center;
+            padding: 30px;
+            background: #fff3cd;
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 2px solid #ffeaa7;
+        }
+        
+        .disclaimer h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .disclaimer p {
+            color: #856404;
+            font-size: 16px;
+        }
+        
+        /* 联系方式 */
+        .contact {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .contact h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .contact-email {
+            font-size: 20px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+        
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 36px;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .download-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .main-content {
+                padding: 20px;
+                margin: 10px;
+            }
+        }
+        
+        /* 维护提示 */
+        .maintenance-notice {
+            background: #ff6b6b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+    </style>
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">TT<span>Poker</span></div>
+            <div class="tagline">专业德州扑克游戏平台</div>
+        </header>
+        
+        <div class="maintenance-notice">
+            <i class="fas fa-tools"></i> 网站正在升级维护中，应用下载功能正常
+        </div>
+        
+        <main class="main-content">
+            <section class="intro">
+                <h2>最专业的扑克游戏体验</h2>
+                <p>TT Poker 为您带来最真实、最刺激的德州扑克游戏体验。无论您是新手还是老手，都能在这里找到乐趣。</p>
+                <p>我们的游戏完全基于娱乐目的，旨在提升玩家的扑克技巧和策略思维。</p>
+            </section>
+            
+            <section class="features">
+                <div class="feature">
+                    <div class="feature-icon">♠️</div>
+                    <h3>专业游戏体验</h3>
+                    <p>真实的德州扑克规则，专业的游戏界面，给您最地道的扑克体验。</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">👥</div>
+                    <h3>社交互动</h3>
+                    <p>与全球玩家实时对战，结交志同道合的扑克爱好者。</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">📈</div>
+                    <h3>技巧提升</h3>
+                    <p>通过游戏不断提升您的扑克技巧和策略思维能力。</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🔒</div>
+                    <h3>安全可靠</h3>
+                    <p>严格的数据加密和安全保障，保护您的游戏体验。</p>
+                </div>
+            </section>
+            
+            <section class="download-section">
+                <h2>立即下载TT Poker</h2>
+                <p>加入全球扑克爱好者的行列</p>
+                
+                <div class="download-buttons">
+                    <a href="#ios-download" class="download-btn ios">
+                        <span class="btn-icon"><i class="fab fa-apple"></i></span>
+                        <span>
+                            <div>iOS 下载</div>
+                            <div style="font-size: 14px; opacity: 0.8;">点击获取安装链接</div>
+                        </span>
+                    </a>
+                    
+                    <a href="#android-download" class="download-btn android">
+                        <span class="btn-icon"><i class="fab fa-android"></i></span>
+                        <span>
+                            <div>Android 下载</div>
+                            <div style="font-size: 14px; opacity: 0.8;">点击获取安装包</div>
+                        </span>
+                    </a>
+                </div>
+                
+                <div id="ios-download" style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; display: none;">
+                    <h3>iOS 安装说明</h3>
+                    <p style="margin: 15px 0;">由于iOS限制，请按以下步骤安装：</p>
+                    <ol style="text-align: left; max-width: 500px; margin: 0 auto;">
+                        <li>点击下方链接下载应用</li>
+                        <li>在设置 → 通用 → 设备管理中信任企业证书</li>
+                        <li>返回桌面即可打开应用</li>
+                    </ol>
+                    <p style="margin-top: 20px;">
+                        <strong>下载链接：</strong> 
+                        <span style="color: #FFD700; font-weight: bold;">[咕噜分发链接待更新]</span>
+                    </p>
+                </div>
+                
+                <div id="android-download" style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; display: none;">
+                    <h3>Android 安装说明</h3>
+                    <p style="margin: 15px 0;">Android设备安装步骤：</p>
+                    <ol style="text-align: left; max-width: 500px; margin: 0 auto;">
+                        <li>点击下方链接下载APK文件</li>
+                        <li>在设置中允许"未知来源"安装</li>
+                        <li>找到下载的APK文件并安装</li>
+                    </ol>
+                    <p style="margin-top: 20px;">
+                        <strong>下载链接：</strong> 
+                        <span style="color: #FFD700; font-weight: bold;">[咕噜分发链接待更新]</span>
+                    </p>
+                </div>
+            </section>
+            
+            <section class="instructions">
+                <h3>常见问题解答</h3>
+                <ol>
+                    <li><strong>游戏需要付费吗？</strong> - 完全免费，纯娱乐性质</li>
+                    <li><strong>有真实货币交易吗？</strong> - 没有，我们严禁任何真实货币交易</li>
+                    <li><strong>如何保证游戏公平？</strong> - 采用专业的随机算法，确保游戏公平性</li>
+                    <li><strong>支持哪些设备？</strong> - 支持iOS 13+和Android 8.0+系统</li>
+                    <li><strong>数据安全吗？</strong> - 采用银行级加密技术保护用户数据</li>
+                </ol>
+            </section>
+            
+            <section class="disclaimer">
+                <h3><i class="fas fa-exclamation-triangle"></i> 重要声明</h3>
+                <p>TT Poker 是一款纯娱乐性质的扑克游戏，严禁用于赌博。</p>
+                <p>游戏仅限18岁以上用户使用。请理性游戏，享受健康娱乐。</p>
+                <p>我们严格遵守相关法律法规，反对任何形式的赌博行为。</p>
+            </section>
+            
+            <section class="contact">
+                <h3>联系我们</h3>
+                <p>如有任何问题或建议，请通过以下方式联系我们：</p>
+                <a href="mailto:support@maxworldpoker.com" class="contact-email">support@maxworldpoker.com</a>
+                <p style="margin-top: 15px;">我们将在24小时内回复您的邮件。</p>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2026 TT Poker. All rights reserved.</p>
+            <p class="copyright">本游戏仅供娱乐，严禁用于赌博。请遵守当地法律法规。</p>
+            <p class="copyright" style="margin-top: 10px; font-size: 12px; opacity: 0.6;">
+                网站版本: 1.0.0 | 最后更新: 2026年4月10日
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // 下载按钮交互
+        document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetDiv = document.getElementById(targetId);
+                
+                // 隐藏所有下载说明
+                document.querySelectorAll('[id$="download"]').forEach(div => {
+                    div.style.display = 'none';
+                });
+                
+                // 显示目标说明
+                if (targetDiv) {
+                    targetDiv.style.display = 'block';
+                    targetDiv.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // 显示维护时间
+            const updateTime = new Date().toLocaleString('zh-CN');
+            const timeElement = document.querySelector('.copyright:last-child');
+            if (timeElement) {
+                timeElement.innerHTML = `网站版本: 1.0.0 | 最后更新: ${updateTime}`;
+            }
+        });
+        
+        // 模拟咕噜分发链接（实际使用时替换为真实链接）
+        function updateDownloadLinks() {
+            // 这里可以添加从咕噜分发获取最新链接的逻辑
+            console.log('需要更新咕噜分发下载链接');
+            
+            // 示例：手动更新链接
+            // document.querySelector('#ios-download span').textContent = 'https://app.gulufenfa.com/xxxxx';
+            // document.querySelector('#android-download span').textContent = 'https://app.gulufenfa.com/yyyyy';
+        }
+        
+        // 初始化时尝试更新链接
+        updateDownloadLinks();
+    </script>
+</body>
+</html>
